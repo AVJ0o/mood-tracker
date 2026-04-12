@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Mood Tracker" />
+
+  <title>Mood Tracker</title>
+
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <main class="app-shell">
+
+      <!-- TODAY -->
+      <section id="screen-today" class="screen active">
+        <div class="screen-scroll">
+          <div class="content-wrap">
+
+            <header class="page-header page-header-center">
+              <p class="eyebrow">How are you feeling?</p>
+            </header>
+
+            <section class="card section-card">
+              <div id="mood-scale" class="mood-scale"></div>
+            </section>
+
+            <section class="card section-card">
+              <div class="section-heading-row">
+                <h2 class="section-heading">Emotions</h2>
+                <span class="section-subtle">Choose up to 3</span>
+              </div>
+              <div id="emotion-grid" class="emotion-grid"></div>
+            </section>
+
+            <section class="card section-card">
+              <div class="section-heading-row">
+                <h2 class="section-heading">Tags</h2>
+                <button id="open-tag-modal-btn" class="manage-btn" type="button">
+                  Manage
+                </button>
+              </div>
+              <div id="tag-grid" class="tag-grid"></div>
+            </section>
+
+            <section class="card section-card">
+              <div class="section-heading-row">
+                <h2 class="section-heading">Note</h2>
+                <span class="section-subtle">Optional</span>
+              </div>
+              <textarea
+                id="note-input"
+                class="note-input"
+                rows="4"
+                maxlength="240"
+                placeholder="Anything to note?"
+              ></textarea>
+            </section>
+
+            <button id="submit-btn" class="primary-btn" type="button" disabled>
+              Log Entry
+            </button>
+
+            <div id="logged-confirm" class="logged-confirm hidden">
+              <div class="logged-dot"></div>
+              <span>Logged for today</span>
+            </div>
+
+            <button id="edit-today-btn" class="secondary-btn hidden" type="button">
+              Edit Entry
+            </button>
+
+            <section id="insights-card" class="card section-card insights-card">
+              <div class="section-heading-row">
+                <h2 class="section-heading">Quick Insights</h2>
+              </div>
+              <div id="today-insights" class="insights-grid"></div>
+            </section>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORY -->
+      <section id="screen-history" class="screen">
+        <div class="screen-scroll">
+          <div class="content-wrap">
+
+            <header class="page-header">
+              <h1 class="page-title">History</h1>
+            </header>
+
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="calendar" type="button">Calendar</button>
+              <button class="tab-btn" data-tab="weekly" type="button">Weekly</button>
+              <button class="tab-btn" data-tab="trends" type="button">Trends</button>
+            </div>
+
+            <div id="tab-calendar" class="tab-panel active"></div>
+            <div id="tab-weekly" class="tab-panel"></div>
+            <div id="tab-trends" class="tab-panel"></div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="screen-settings" class="screen">
+        <div class="screen-scroll">
+          <div class="content-wrap">
+
+            <header class="page-header">
+              <h1 class="page-title">Settings</h1>
+            </header>
+
+            <div class="settings-stack">
+
+              <div id="welcome-label" class="section-subtle">
+                Welcome back
+              </div>
+
+              <button id="reminder-enabled" class="settings-btn" type="button">
+                Reminder Off
+              </button>
+
+              <input
+                id="reminder-time"
+                class="settings-time"
+                type="time"
+                value="20:00"
+              />
+
+              <button id="export-btn" class="settings-btn" type="button">
+                Export Data
+              </button>
+
+              <button id="reset-btn" class="settings-btn" type="button">
+                Reset All Data
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- NAV -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-screen="today" type="button">Today</button>
+      <button class="nav-btn" data-screen="history" type="button">History</button>
+      <button class="nav-btn" data-screen="settings" type="button">Settings</button>
+    </nav>
+  </div>
+
+  <!-- ENTRY MODAL -->
+  <div id="entry-modal" class="modal-overlay hidden">
+    <div class="modal-sheet">
+      <button id="entry-modal-close" type="button">Close</button>
+      <div id="entry-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- TAG MODAL -->
+  <div id="tag-modal" class="modal-overlay hidden">
+    <div class="modal-sheet">
+      <button id="tag-modal-close" type="button">Close</button>
+
+      <form id="tag-form">
+        <input id="tag-name-input" type="text" />
+        <button id="tag-save-btn" type="submit">Save</button>
+      </form>
+
+      <div id="tag-manager-list"></div>
+    </div>
+  </div>
+
+  <script src="./js/state.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/db.js"></script>
+  <script src="./js/tags.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/notifications.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
