@@ -92,8 +92,8 @@ function scheduleReminder(timeString) {
   reminderTimeoutId = setTimeout(async () => {
     await self.registration.showNotification('Mood Tracker', {
       body: 'Take a moment to log how you feel today.',
-      icon: './icon-192.png',
-      badge: './icon-192.png'
+      icon: './icon-512.png',
+      badge: './icon-512.png'
     });
 
     if (reminderTime) {

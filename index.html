@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#111110" />
+
+  <!-- ICONS (IMPORTANT) -->
+  <link rel="icon" type="image/png" href="./icon-512.png" />
+  <link rel="apple-touch-icon" href="./icon-512.png" />
+
+  <!-- iOS PWA -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Mood Tracker" />
 
   <title>Mood Tracker</title>
 
-  <link rel="manifest" href="./manifest.json" />
+  <!-- Styles -->
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
+
 <body>
   <div id="app">
     <main class="app-shell">
@@ -180,6 +191,7 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="./js/state.js"></script>
   <script src="./js/utils.js"></script>
   <script src="./js/db.js"></script>
